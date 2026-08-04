@@ -15,6 +15,7 @@ This project implements a serverless event-driven bridging solution that forward
 
 ## 📐 Architecture Flow
 
+```text
 ┌─────────────────────────┐
 │  AWS Management Console │
 └────────────┬────────────┘
@@ -48,6 +49,8 @@ This project implements a serverless event-driven bridging solution that forward
 │     Discord Webhook     ├────►│     Discord Channel     │
 │   (Integration API)     │     │    (#security-alerts)   │
 └─────────────────────────┘     └─────────────────────────┘
+```
+
 
 
 

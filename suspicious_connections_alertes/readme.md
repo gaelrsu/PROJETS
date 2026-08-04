@@ -12,7 +12,7 @@ This project sets up an automated security alerting pipeline using native AWS se
 ---
 
 ## 📐 Architecture Flow
-AWS CloudTrail ──► CloudWatch Logs ──► CloudWatch Alarm ──► SNS Topic ──► Email / Webhook
+AWS CloudTrail ──► CloudWatch Logs ──► CloudWatch Alarm ──► SNS Topic
 
 
 ---

@@ -16,39 +16,39 @@ This project implements a serverless event-driven bridging solution that forward
 ## 📐 Architecture Flow
 
 ```text
-┌─────────────────────────┐
-│  AWS Management Console │
-└────────────┬────────────┘
-             │ (Failed Login Attempts)
-             v
-┌─────────────────────────┐
-│  CloudWatch Log Group   │
-└────────────┬────────────┘
-             │
-             v
-┌─────────────────────────┐
-│   CloudWatch Alarm      │
-│  (Trigger: > 5 Failures)│
-└────────────┬────────────┘
-             │
-             v
-┌─────────────────────────┐
-│   Amazon SNS Topic      │
-│    (discord-alerts)     │
-└────────────┬────────────┘
-             │
-             v
-┌─────────────────────────┐
-│   AWS Lambda Function   │
-│  (Python 3.12 Bridge)   │
-└────────────┬────────────┘
-             │
-             │ (HTTPS / POST Webhook)
-             v
-┌─────────────────────────┐     ┌─────────────────────────┐
-│     Discord Webhook     ├────►│     Discord Channel     │
-│   (Integration API)     │     │    (#security-alerts)   │
-└─────────────────────────┘     └─────────────────────────┘
+                            ┌─────────────────────────┐
+                            │  AWS Management Console │
+                            └────────────┬────────────┘
+                                         │ (Failed Login Attempts)
+                                         v
+                            ┌─────────────────────────┐
+                            │  CloudWatch Log Group   │
+                            └────────────┬────────────┘
+                                         │
+                                         v
+                            ┌─────────────────────────┐
+                            │   CloudWatch Alarm      │
+                            │  (Trigger: > 5 Failures)│
+                            └────────────┬────────────┘
+                                         │
+                                         v
+                            ┌─────────────────────────┐
+                            │   Amazon SNS Topic      │
+                            │    (discord-alerts)     │
+                            └────────────┬────────────┘
+                                         │
+                                         v
+                            ┌─────────────────────────┐
+                            │   AWS Lambda Function   │
+                            │  (Python 3.12 Bridge)   │
+                            └────────────┬────────────┘
+                                         │
+                                         │ (HTTPS / POST Webhook)
+                                         v
+                            ┌─────────────────────────┐     ┌─────────────────────────┐
+                            │     Discord Webhook     ├────►│     Discord Channel     │
+                            │   (Integration API)     │     │    (#security-alerts)   │
+                            └─────────────────────────┘     └─────────────────────────┘
 ```
 
 

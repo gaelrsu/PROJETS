@@ -1,4 +1,4 @@
-# 🔔 AWS CloudWatch Alarms to Discord Notification Pipeline
+# 🔔 AWS CloudWatch Alarms to Discord Notification
 
 [![AWS](https://img.shields.io/badge/AWS-Lambda%20%7C%20SNS%20%7C%20CloudWatch-orange?style=flat-square&logo=amazon-aws)](https://aws.amazon.com/)
 [![Discord](https://img.shields.io/badge/Discord-Webhook%20Integration-5865F2?style=flat-square&logo=discord)](https://discord.com/)

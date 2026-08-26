@@ -1,0 +1,68 @@
+{
+  "alert-dispatcher": {
+    "description": "Rôle IAM pour la Lambda sendToDiscord / alert-dispatcher",
+    "policies": [
+      {
+        "name": "lambda-invoke-enricher",
+        "statement": {
+          "Effect": "Allow",
+          "Action": ["lambda:InvokeFunction"],
+          "Resource": "arn:aws:lambda:eu-west-1:*:function:security-alert-enricher"
+        }
+      },
+      {
+        "name": "cloudwatch-logs-insights",
+        "statement": {
+          "Effect": "Allow",
+          "Action": [
+            "logs:StartQuery",
+            "logs:GetQueryResults"
+          ],
+          "Resource": "arn:aws:logs:eu-west-1:*:log-group:*:*"
+        }
+      },
+      {
+        "name": "cloudwatch-logs-write",
+        "statement": {
+          "Effect": "Allow",
+          "Action": [
+            "logs:CreateLogGroup",
+            "logs:CreateLogStream",
+            "logs:PutLogEvents"
+          ],
+          "Resource": "*"
+        }
+      }
+    ]
+  },
+  "security-alert-enricher": {
+    "description": "Rôle IAM pour la Lambda d'enrichissement Bedrock",
+    "policies": [
+      {
+        "name": "bedrock-marketplace-access",
+        "statement": {
+          "Effect": "Allow",
+          "Action": [
+            "bedrock:InvokeModel",
+            "aws-marketplace:ViewSubscriptions",
+            "aws-marketplace:Subscribe",
+            "aws-marketplace:Unsubscribe"
+          ],
+          "Resource": "*"
+        }
+      },
+      {
+        "name": "cloudwatch-logs-write",
+        "statement": {
+          "Effect": "Allow",
+          "Action": [
+            "logs:CreateLogGroup",
+            "logs:CreateLogStream",
+            "logs:PutLogEvents"
+          ],
+          "Resource": "*"
+        }
+      }
+    ]
+  }
+}
